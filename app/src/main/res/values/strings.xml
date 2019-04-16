@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CareerBook</string>
+
+
+    <array name="TestTypes">
+        <item>Ecat</item>
+        <item>Mcat</item>
+        <item>NTS</item>
+    </array>
+    <array name="MatricType">
+        <item>Science/Bio</item>
+        <item>Science/Cs</item>
+        <item>Arts/CS</item>
+        <item>Arts</item>
+        <item>Olevel</item>
+    </array>
+    <array name="InterType">
+        <item>Engineering</item>
+        <item>Medical</item>
+        <item>Icom</item>
+        <item>FA</item>
+        <item>Alevel</item>
+    </array>
+</resources>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical"
+    tools:context="com.example.aser.careerbook.MainActivity">
+    <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+        android:layout_weight="8">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="openprofile"
+
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/profile"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="My Profile"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="opennews"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/news"
+                   android:layout_gravity="right"
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="News"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="openNotification"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/notification"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Notification"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="openFindMyUniversty"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/find"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Find My Universty"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/wishlist"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Wishlist"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="openHelp"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/help"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Help/Support"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="opencalulator"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/calculator"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Calulate Your Merit"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="5dp"
+               android:onClick="opencalulator"
+               >
+
+               <ImageView
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/settings"
+                   android:layout_gravity="right"
+
+                   />
+               <TextView
+                   android:padding="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Logout"
+                   android:gravity=""
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+
+
+
+
+       </LinearLayout>
+
+
+
+
+
+   </ScrollView>
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nav_menu"
+        android:layout_gravity="bottom"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
+        app:menu="@menu/bottom_navigation"
+        />
+
+
+
+</LinearLayout>

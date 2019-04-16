@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "628637735098",
+    "firebase_url": "https://itseriesorg.firebaseio.com",
+    "project_id": "itseriesorg",
+    "storage_bucket": "itseriesorg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628637735098:android:9c8e32ea8429174c",
+        "android_client_info": {
+          "package_name": "com.example.aser.careerbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628637735098-vjq8rjumjdi2n9ndvv1jvskgbfppurmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aser.careerbook",
+            "certificate_hash": "11959bb9439ae8eb31897fd4e9644b19a3ad036b"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbiOp9PNYVAKq4YaC7tO4AuQPtan2tMts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628637735098-epnu23i36aqfjb16a2kofeogcrkbf6jm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
