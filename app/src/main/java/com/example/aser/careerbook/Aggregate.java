@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -27,14 +28,19 @@ import java.util.List;
      RecyclerView recyclerView;
      Aggri_Adapter aggri_adapter;
      List <Aggri_Model> aggri_model_list;
+     FirebaseAuth firebaseAuth;
+     String key;
+   Float user_agg;
      private RecyclerView.LayoutManager mLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aggregate);
+        firebaseAuth=FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String Selected = intent.getStringExtra("selected");
-        databaseReference = FirebaseDatabase.getInstance().getReference("universities");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         recyclerView = findViewById(R.id.aggriRecycler);
         aggri_model_list = new ArrayList<>();
         test1=findViewById(R.id.testview);
@@ -42,7 +48,12 @@ import java.util.List;
         recyclerView.setAdapter(aggri_adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference.child(Selected).addListenerForSingleValueEvent(new ValueEventListener() {
+//        test();
+//        String str = String.valueOf(user_agg);
+//        test1.setText(str);
+        getProfile();
+        Query query=FirebaseDatabase.getInstance().getReference("universities").child(Selected).orderByChild("expectedMerit").startAt(80.1);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
@@ -63,30 +74,57 @@ import java.util.List;
             }
         });
 
-test();
     }
-     public void test(){
-         databaseReference = FirebaseDatabase.getInstance().getReference("universities").child("CSIT").child("-Lca3MC8MUZ60oIDxg3O").child("previousMerit");
-         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-             @Override
-             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//     public void test(){
+//        key=firebaseAuth.getInstance().getCurrentUser().getUid();
+//
+//         databaseReference = FirebaseDatabase.getInstance().getReference("Profile").child(key).child("uetAgrigate");
+//         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//             @Override
+//             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                 if (dataSnapshot.exists())
+//                 {
+//                     String z;
+//                     user_agg= dataSnapshot.getValue(Float.class);
+////                     user_agg=Float.valueOf(z);
+//                 }
+//                 else
+//                     Toast.makeText(Aggregate.this,"empty",Toast.LENGTH_LONG).show();
+//             }
+//
+//             @Override
+//             public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//             }
+//         });
+//
+//     }
+public void getProfile()
+{
+    key = firebaseAuth.getInstance().getCurrentUser().getUid();
+    databaseReference.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists()){
 
-                 if (dataSnapshot.exists())
-                 {
+                ProfileModel getDataModel = dataSnapshot.getValue(ProfileModel.class);
+                test1.setText(Double.toString(getDataModel.uetAgrigate));
+//                String str = String.valueOf(getDataModel.uetAgrigate);
+//                test1.setText(str);
 
-                     test1.setText(String.valueOf(dataSnapshot.getValue(Double.class)));
-                 }
-                 else
-                     Toast.makeText(Aggregate.this,"empty",Toast.LENGTH_LONG).show();
-             }
+            }
 
-             @Override
-             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-             }
-         });
+        }
 
-     }
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    });
+
+}
 }
 
 
