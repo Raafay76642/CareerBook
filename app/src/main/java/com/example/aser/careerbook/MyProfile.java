@@ -141,10 +141,9 @@ public void saveProfile(View view)
         {
 
             agrigate= ((InterOm * 70)/1100) + ((TestOm * 30)/400);
-
         }
         else {
-            agrigate = 0.00;
+            agrigate = 0;
 
         }
 

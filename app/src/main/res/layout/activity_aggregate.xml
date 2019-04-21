@@ -6,11 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".Aggregate"
     android:orientation="vertical">
-   <TextView
-       android:id="@+id/testview"
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Test"/>
+       android:orientation="horizontal">
+      <TextView
+          android:id="@+id/testview"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Filter your data"
+          android:layout_margin="10dp"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/sfilter"
+          android:entries="@array/filter"
+          android:layout_margin="10dp">
+
+      </Spinner>
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Apply"
+          android:layout_gravity="right"
+          android:gravity="center_horizontal"
+          android:id="@+id/apply"
+          android:onClick="test"/>
+   </LinearLayout>
+
 
    <android.support.v7.widget.RecyclerView
        android:id="@+id/aggriRecycler"

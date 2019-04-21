@@ -21,4 +21,10 @@
         <item>FA</item>
         <item>Alevel</item>
     </array>
+    <array name="filter">
+        <item>All</item>
+        <item>Expected Merit</item>
+        <item>Previous Merit</item>
+
+    </array>
 </resources>
