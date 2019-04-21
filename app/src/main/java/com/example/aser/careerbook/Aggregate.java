@@ -37,7 +37,6 @@ import java.util.List;
      Button bapply;
      Spinner filter;
      Query query1;
-     Button wishlist;
    double user_agg;
    String Selected;
      private RecyclerView.LayoutManager mLayoutMaanager;
@@ -49,7 +48,6 @@ import java.util.List;
         Intent intent = getIntent();
          Selected = intent.getStringExtra("selected");
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        wishlist=(Button)findViewById(R.id.add_WishList);
         recyclerView = findViewById(R.id.aggriRecycler);
         aggri_model_list = new ArrayList<>();
         bapply=(Button)findViewById(R.id.apply);
@@ -60,24 +58,8 @@ import java.util.List;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-//
-
     }
 
-    public void addWishList(){
-        Intent intent=getIntent();
-        String uni=intent.getStringExtra("Uni");
-        String dep=intent.getStringExtra("Degree");
-        key=firebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference("WishList");
-        databaseReference.setValue(uni);
-        databaseReference.setValue(dep);
-        databaseReference.setValue(key);
-        Toast.makeText(Aggregate.this, "Code in progress", Toast.LENGTH_SHORT).show();
-
-    }
 
      public void test(View view){
         key=firebaseAuth.getInstance().getCurrentUser().getUid();
