@@ -45,12 +45,12 @@ public class Aggri_Adapter extends RecyclerView.Adapter<Aggri_Adapter.aggri_view
         final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("WishList");
         final FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         final Aggri_Model aggri_model = aggri_model_list.get(position);
-        holder.aggri_uni.setText(aggri_model.univesity);
-        holder.aggri_province.setText(aggri_model.province);
-        holder.aggri_sector.setText(aggri_model.sector);
-        holder.aggri_name.setText(aggri_model.degreeName);
-        holder.aggri_previous.setText( Float.toString(aggri_model.previousMerit));
-        holder.aggri_expected.setText(Float .toString(aggri_model.expectedMerit));
+        holder.aggri_uni.setText("University: "+aggri_model.univesity);
+        holder.aggri_province.setText("Province: "+aggri_model.province);
+        holder.aggri_sector.setText("Sector: "+aggri_model.sector);
+        holder.aggri_name.setText("Program: "+aggri_model.degreeName);
+        holder.aggri_previous.setText( "Last Year Aggregate: "+Float.toString(aggri_model.previousMerit));
+        holder.aggri_expected.setText("Expected Aggregate: "+Float .toString(aggri_model.expectedMerit));
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position) {
