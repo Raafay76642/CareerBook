@@ -21,62 +21,70 @@
         android:layout_weight="1">
 
         <TextView
-        android:id="@+id/degreeName"
+            android:id="@+id/degreeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="12sp" />
+
         <TextView
             android:id="@+id/expectedMerit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="12sp" />
+
         <TextView
             android:id="@+id/previousYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="12sp" />
 
 
         <TextView
-        android:id="@+id/province"
+            android:id="@+id/province"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textSize="10sp" />
 
 
         <TextView
-        android:id="@+id/sector"
+            android:id="@+id/sector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textSize="10sp" />
 
 
         <TextView
-        android:id="@+id/universty"
+            android:id="@+id/universty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Atif Aslam"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textSize="10sp" />
 
 
     </LinearLayout>
-       <Button
-           android:layout_weight="2"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center"
-           android:gravity="center"
-           android:layout_margin="20dp"
-           android:text="Add to Wishlist"
-           android:id="@+id/add_WishList"
-           android:background="@drawable/rountcorner"
-           />
+
+    <Button
+        android:id="@+id/add_WishList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_weight="2"
+        android:background="@drawable/rountcorner"
+        android:gravity="center"
+        android:text="Add to Wishlist"
+        android:textSize="10sp" />
 
 
 

@@ -16,6 +16,44 @@ public class ProfileModel {
     }
 
     double uetAgrigate;
+
+    public double getNtsAgrigate() {
+        return ntsAgrigate;
+    }
+
+    public void setNtsAgrigate(double ntsAgrigate) {
+        this.ntsAgrigate = ntsAgrigate;
+    }
+
+    public double getGagrigate() {
+        return gagrigate;
+    }
+
+    public void setGagrigate(double gagrigate) {
+        this.gagrigate = gagrigate;
+    }
+
+    double ntsAgrigate;
+    double gagrigate;
+
+    public double getFastagrigate() {
+        return fastagrigate;
+    }
+
+    public void setFastagrigate(double fastagrigate) {
+        this.fastagrigate = fastagrigate;
+    }
+
+    public double getNustagrigate() {
+        return nustagrigate;
+    }
+
+    public void setNustagrigate(double nustagrigate) {
+        this.nustagrigate = nustagrigate;
+    }
+
+    double fastagrigate;
+    double nustagrigate;
     String testName,fullName,email,matricType,interType;
 
    public ProfileModel()
@@ -23,7 +61,7 @@ public class ProfileModel {
 
     }
 
-    public ProfileModel(double matricTm, double matricOm, double interTm, double interOm, double testOm, String testName,String FullName,String Email,String matricType,String interType,double uetAgrigate) {
+    public ProfileModel(double matricTm, double matricOm, double interTm, double interOm, double testOm, String testName,String FullName,String Email,String matricType,String interType,double uetAgrigate,double ntsAgrigate,double gagrigate,double fastagrigate,double nustagrigate ) {
         this.matricTm = matricTm;
         this.matricOm = matricOm;
         this.interTm = interTm;
@@ -35,7 +73,10 @@ public class ProfileModel {
         this.matricType = matricType;
         this.interType = interType;
         this.uetAgrigate = uetAgrigate;
-
+        this.gagrigate = gagrigate;
+        this.ntsAgrigate=ntsAgrigate;
+        this.fastagrigate = fastagrigate;
+        this.nustagrigate = nustagrigate;
     }
 
     public double getMatricTm() {

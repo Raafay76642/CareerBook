@@ -4,8 +4,8 @@
 
     <array name="TestTypes">
         <item>Ecat</item>
-        <item>Mcat</item>
         <item>NTS</item>
+        <item>NET</item>
     </array>
     <array name="MatricType">
         <item>Science/Bio</item>

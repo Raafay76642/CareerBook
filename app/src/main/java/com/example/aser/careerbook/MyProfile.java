@@ -23,6 +23,11 @@ import junit.framework.Test;
 public class MyProfile extends AppCompatActivity {
 
     EditText matricTm,matricOm,interTm,interOm,testOm,BTm,BOm,fname,emailtv;
+    double aggrigateECAT=0;
+    double aggrigateNTS= 0;
+    double aggrigateGernal=0;
+    double aggrigateNUST =0;
+    double aggrigateFAST=0;
     Spinner testName,spinnerMatric,spinnerInter;
     FirebaseAuth firebaseAuth;
     DatabaseReference profileRefrence;
@@ -86,19 +91,19 @@ public class MyProfile extends AppCompatActivity {
 
 public void saveProfile(View view)
 {
-
+    findagrigate();
     double MatricTm = Double.parseDouble(matricTm.getText().toString());
     double MatricOm = Double.parseDouble(matricOm.getText().toString());
     double InterTm = Double.parseDouble(interTm.getText().toString());
     double InterOm = Double.parseDouble(interOm.getText().toString());
     double TestOm = Double.parseDouble(testOm.getText().toString());
     String TestName = testName.getSelectedItem().toString();
-   double Agrigate = findagrigate();
+   double Agrigate = aggrigateECAT;
     String MatricType = spinnerMatric.getSelectedItem().toString();
     String InterType = spinnerInter.getSelectedItem().toString();
     String Sfname = fname.getText().toString();
     String Semail = emailtv.getText().toString();
-    ProfileModel profileModel = new ProfileModel(MatricTm,MatricOm,InterTm,InterOm,TestOm,TestName,Sfname,Semail,MatricType,InterType,Agrigate);
+    ProfileModel profileModel = new ProfileModel(MatricTm,MatricOm,InterTm,InterOm,TestOm,TestName,Sfname,Semail,MatricType,InterType,Agrigate,aggrigateNTS,aggrigateGernal,aggrigateFAST,aggrigateNUST);
         profileRefrence.child(id).setValue(profileModel);
         final Toast toast = Toast.makeText(MyProfile.this, "Data is Saved", Toast.LENGTH_LONG);
         toast.show();
@@ -132,22 +137,31 @@ public void saveProfile(View view)
        });
 
     }
-    public double findagrigate()
+    public void findagrigate()
     {
-        double agrigate;
+
         double InterOm = Double.parseDouble(interOm.getText().toString());
         double TestOm = Double.parseDouble(testOm.getText().toString());
+        double MatricOm = Double.parseDouble(matricOm.getText().toString());
         if (testName.getSelectedItem().toString().equals("Ecat"))
         {
 
-            agrigate= ((InterOm * 70)/1100) + ((TestOm * 30)/400);
-        }
-        else {
-            agrigate = 0;
+            aggrigateECAT= ((InterOm * 70)/1100) + ((TestOm * 30)/400);
+            aggrigateGernal=((InterOm * 60)/1100) + ((MatricOm * 40)/1050);
 
         }
+        else if(testName.getSelectedItem().toString().equals("NTS")){
+            aggrigateNTS =((InterOm*40)/1100)+((TestOm*50)/100)+((MatricOm*10)/1050);
+            aggrigateGernal=((InterOm * 60)/1100) + ((MatricOm * 40)/1050);
+            aggrigateFAST =((InterOm * 50)/1100) + ((TestOm * 50)/100);
 
-        return agrigate;
+        }
+        else if(testName.getSelectedItem().toString().equals("NET")){
+            aggrigateGernal=((InterOm * 60)/1100) + ((MatricOm * 40)/1050);
+            aggrigateNUST = ((InterOm*15)/1100)+((TestOm*75)/200)+((MatricOm*10)/1050);
+
+        }
+        else{aggrigateGernal=((InterOm * 60)/1100) + ((MatricOm * 40)/1050);}
     }
 
     public void unEditabe()
