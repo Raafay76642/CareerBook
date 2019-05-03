@@ -6,14 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.aser.careerbook.help">
-
-
-
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wishlistRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Wishlist Module"
-        android:textSize="40sp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

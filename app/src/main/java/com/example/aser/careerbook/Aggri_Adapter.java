@@ -42,8 +42,9 @@ public class Aggri_Adapter extends RecyclerView.Adapter<Aggri_Adapter.aggri_view
 
     @Override
     public void onBindViewHolder(@NonNull final aggri_view_holder holder, int position) {
-        final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("WishList");
+        final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("WishList").push();
         final FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        final String key=firebaseAuth.getInstance().getCurrentUser().getUid();
         final Aggri_Model aggri_model = aggri_model_list.get(position);
         holder.aggri_uni.setText("University: "+aggri_model.univesity);
         holder.aggri_province.setText("Province: "+aggri_model.province);
@@ -56,10 +57,10 @@ public class Aggri_Adapter extends RecyclerView.Adapter<Aggri_Adapter.aggri_view
             public void onClick(View view, int position) {
                 String uni =aggri_model_list.get(position).univesity;
                 String degree =aggri_model_list.get(position).degreeName;
-                    String key=firebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReference.child(key).child("university").setValue(uni);
-                    databaseReference.child(key).child("department").setValue(degree);
-                    databaseReference.child(key).child("UID").setValue(key);
+
+                    databaseReference.child("university").setValue(uni);
+                    databaseReference.child("department").setValue(degree);
+                    databaseReference.child("UID").setValue(key);
                     Toast.makeText(ctx, "Added to whishlist", Toast.LENGTH_SHORT).show();
             }
         });

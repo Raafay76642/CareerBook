@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
     }
+    public void openwishList(View View)
+    {
+        Intent i = new Intent(this, wishlist.class);
+        startActivity(i);
+    }
 
     public void opennews(View View)
     {
