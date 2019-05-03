@@ -9,30 +9,27 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="horizontal">
+       android:orientation="horizontal"
+       android:gravity="center"
+       android:background="@color/colorPrimary">
       <TextView
+          android:textColor="#fff"
           android:id="@+id/testview"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Filter your data"
           android:layout_margin="10dp"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/sfilter"
-          android:entries="@array/filter"
-          android:layout_margin="10dp">
-
-      </Spinner>
       <Button
+          android:id="@+id/opendialouge"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Apply"
           android:layout_gravity="right"
           android:gravity="center_horizontal"
-          android:id="@+id/apply"
-          android:onClick="test"/>
+          android:text="Select filter"
+          android:textSize="14sp" />
+
+
    </LinearLayout>
 
 

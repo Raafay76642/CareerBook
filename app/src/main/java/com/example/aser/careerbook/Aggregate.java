@@ -14,7 +14,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.app.Dialog;
+import android.content.Context;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,8 +35,9 @@ import java.util.List;
      List <Aggri_Model> aggri_model_list;
      FirebaseAuth firebaseAuth;
      String key;
-     Button bapply;
-     Spinner filter;
+     Button bapply,filterbtn;
+     String filterCategory,filterValue;
+     Spinner filter,value;
      Query query1;
    double user_agg;
    String Selected;
@@ -50,18 +52,38 @@ import java.util.List;
         databaseReference = FirebaseDatabase.getInstance().getReference();
         recyclerView = findViewById(R.id.aggriRecycler);
         aggri_model_list = new ArrayList<>();
-        bapply=(Button)findViewById(R.id.apply);
-        filter=(Spinner)findViewById(R.id.sfilter);
+        filterbtn = findViewById(R.id.opendialouge);
         test1=findViewById(R.id.testview);
         aggri_adapter = new Aggri_Adapter(this,aggri_model_list);
         recyclerView.setAdapter(aggri_adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        filterbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(Aggregate.this);
+                dialog.setContentView(R.layout.filterdialouge);
+                Button dialogButton = (Button) dialog.findViewById(R.id.applydioloudefilter);
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                       // filter=(Spinner)dialog.findViewById(R.id.spinnerFilter);
+                        filter =  (Spinner)dialog.findViewById(R.id.spinnerValue);
+                     //   filterCategory = filter.getSelectedItem().toString();
+                        filterValue = filter.getSelectedItem().toString();
+                        test();
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
     }
 
 
-     public void test(View view){
+     public void test(){
         key=firebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Profile").child(key).child("uetAgrigate");
          databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,6 +102,7 @@ import java.util.List;
 
              }
          });
+
          switch (filter.getSelectedItem().toString()){
              case ("Previous Merit"):
              {
@@ -94,7 +117,7 @@ import java.util.List;
              }
              default:
              {
-                 query1=FirebaseDatabase.getInstance().getReference("universities").child(Selected).orderByChild("expectedMerit");
+                 query1=FirebaseDatabase.getInstance().getReference("universities").child(Selected).orderByChild("previousMerit");
                  break;
              }
          }
@@ -147,6 +170,10 @@ import java.util.List;
 //    });
 //
 //}
-}
+     public void setfilterValue()
+     {
 
+     }
+
+}
 

@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">CareerBook</string>
 
-
+<array name="filterValue">
+    <item>Expected Merit</item>
+    <item>Previous Merit</item>
+    <item>All</item>
+</array>
     <array name="TestTypes">
         <item>Ecat</item>
         <item>NTS</item>
