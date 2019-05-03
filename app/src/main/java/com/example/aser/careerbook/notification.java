@@ -3,12 +3,15 @@ package com.example.aser.careerbook;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +35,8 @@ public class notification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+        BottomNavigationView bottomnav = (BottomNavigationView)findViewById(R.id.nav_menu);
+        bottomnav.setOnNavigationItemSelectedListener(navlistner);
         recyclerView = findViewById(R.id.recyclerView1);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,6 +81,34 @@ public class notification extends AppCompatActivity {
             }
         });
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener navlistner =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.home:
+                            finish();
+                            Intent intent = new Intent (notification.this, MainActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.notification:
+                            finish();
+                            Intent in = new Intent (notification.this, notification.class);
+                            startActivity(in);
+                            break;
+                        case R.id.news:
+                            finish();
+                            Intent ine = new Intent (notification.this, News.class);
+                            startActivity(ine);
+                            break;
+                    }
+                    return true;
+                }
+
+            };
+
 
 
 
