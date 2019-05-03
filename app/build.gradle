@@ -38,7 +38,6 @@ dependencies {
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
 
 
-
     testImplementation 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'
